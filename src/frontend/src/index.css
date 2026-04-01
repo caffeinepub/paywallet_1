@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 1rem;
+    /* PayPal Blue palette in OKLCH */
+    --background: 0.97 0.01 240;
+    --foreground: 0.2 0.04 280;
+    --card: 1 0 0;
+    --card-foreground: 0.2 0.04 280;
+    --popover: 1 0 0;
+    --popover-foreground: 0.2 0.04 280;
+    --primary: 0.28 0.14 260;
+    --primary-foreground: 1 0 0;
+    --secondary: 0.62 0.17 220;
+    --secondary-foreground: 1 0 0;
+    --muted: 0.93 0.01 240;
+    --muted-foreground: 0.55 0.01 240;
+    --accent: 0.62 0.17 220;
+    --accent-foreground: 1 0 0;
+    --destructive: 0.5 0.24 28;
+    --destructive-foreground: 1 0 0;
+    --border: 0.9 0.01 240;
+    --input: 0.9 0.01 240;
+    --ring: 0.62 0.17 220;
+    --success: 0.63 0.22 142;
+    --success-foreground: 1 0 0;
+    --warning: 0.75 0.18 60;
+    --warning-foreground: 0.2 0.04 280;
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.985 0 0;
+    --sidebar-foreground: 0.145 0 0;
+    --sidebar-primary: 0.205 0 0;
+    --sidebar-primary-foreground: 0.985 0 0;
+    --sidebar-accent: 0.97 0 0;
+    --sidebar-accent-foreground: 0.205 0 0;
+    --sidebar-border: 0.922 0 0;
+    --sidebar-ring: 0.708 0 0;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+}
+
+@layer utilities {
+  .wallet-gradient {
+    background: linear-gradient(
+      135deg,
+      oklch(0.28 0.14 260),
+      oklch(0.62 0.17 220)
+    );
+  }
+  .wallet-gradient-dark {
+    background: linear-gradient(
+      135deg,
+      oklch(0.2 0.14 260),
+      oklch(0.4 0.17 220)
+    );
+  }
+  .card-shadow {
+    box-shadow: 0 4px 24px oklch(0.28 0.14 260 / 0.1), 0 1px 4px
+      oklch(0.2 0.04 280 / 0.06);
+  }
+  .card-shadow-md {
+    box-shadow: 0 8px 32px oklch(0.28 0.14 260 / 0.14), 0 2px 8px
+      oklch(0.2 0.04 280 / 0.08);
+  }
+  .phone-frame {
+    max-width: 430px;
+    min-height: 100dvh;
+  }
+  .slide-up {
+    animation: slideUp 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .fade-in {
+    animation: fadeIn 0.25s ease-out;
+  }
+  @keyframes slideUp {
+    from {
+      transform: translateY(24px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes spin-slow {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .animate-spin-slow {
+    animation: spin-slow 1s linear infinite;
+  }
+}
